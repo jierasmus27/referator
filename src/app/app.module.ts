@@ -10,6 +10,7 @@ import { RefereeItemComponent } from './referees/referee-list/referee-item/refer
 import { RatingsComponent } from './ratings/ratings.component';
 import { RatingEditComponent } from './ratings/rating-edit/rating-edit.component';
 import { RatingService } from './ratings/rating.service';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RatingService } from './ratings/rating.service';
     RefereeDetailComponent,
     RefereeItemComponent,
     RatingsComponent,
-    RatingEditComponent
+    RatingEditComponent,
+    DropdownDirective
   ],
   imports: [
   BrowserModule
