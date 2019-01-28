@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-5">
+    <app-referee-list
+      (refereeSelect)="setReferee($event)"
+      ></app-referee-list>
+  </div>
+  <div class="col-md-7">
+    <app-referee-detail 
+      *ngIf="selectedReferee; else noRefSelected"
+      [referee]="selectedReferee"></app-referee-detail>
+    <ng-template #noRefSelected>
+      <span>No Referee selected yet</span>
+    </ng-template>
+  </div>
+</div>

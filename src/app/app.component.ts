@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'referator';
+  menuItem: string;
+
+  changeMenu(item: string) {
+    this.menuItem = item;
+  }
 }

@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-succes">New Referee</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <app-referee-item 
+            *ngFor="let refereeEl of referees"
+            [referee]="refereeEl"
+            (refereeSelected)="onRefereeSelected(refereeEl)"></app-referee-item>
+    </div>
+</div>

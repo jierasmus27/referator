@@ -1,0 +1,16 @@
+<a
+  href="#"
+  (click)="onRefereeSelect()"
+  class="list-group-item clearfix">
+    <div class="pull-left">
+        <h4 class="list-group-item-heading">{{referee.firstName}} {{ referee.lastName }}</h4>
+        <p class="list-group-item-text">{{referee.description}}</p>
+    </div>
+    <span class="pull-right">
+        <img
+            [src]="referee.imagePath"
+            alt="Johnathan Kaplan image"
+            class="img-responsive"
+            style="max-height: 50px;">
+    </span>
+</a>

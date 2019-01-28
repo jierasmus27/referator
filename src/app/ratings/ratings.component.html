@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-rating-edit
+      (ratingAdded)="addRating($event)"></app-rating-edit>
+    <hr>
+    <ul class="list-group">
+      <a
+        href="#"
+        class="list-group-item"
+        style="cursor: pointer;"
+        *ngFor="let rating of ratings">
+        {{ rating.rating }} ({{ rating.comment }})
+      </a>
+    </ul>
+  </div>
+</div>
