@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Referee } from '../../referee.model';
+import { RefereeService } from '../../referee.service';
 
 @Component({
   selector: 'app-referee-item',
@@ -8,15 +9,15 @@ import { Referee } from '../../referee.model';
 })
 export class RefereeItemComponent implements OnInit {
   @Input() referee: Referee;
-  @Output() refereeSelected = new EventEmitter<Referee>();
 
-  constructor() { }
+
+  constructor(private refereeService: RefereeService) { }
 
   ngOnInit() {
   }
 
   onRefereeSelect() {
-    this.refereeSelected.emit();
+    this.refereeService.refereeSelected.emit(this.referee);
   }
 
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Referee } from '../referee.model';
+import { RefereeService } from '../referee.service';
 
 @Component({
   selector: 'app-referee-list',
@@ -7,22 +8,11 @@ import { Referee } from '../referee.model';
   styleUrls: ['./referee-list.component.css']
 })
 export class RefereeListComponent implements OnInit {
-  @Output() refereeSelect = new EventEmitter<Referee>();
+  referees: Referee[];
 
-  referees: Referee[] = [
-    new Referee('Johnathan', 'Kaplan', 'Our foremost Referee',
-                'https://cdn.24.co.za/files/Cms/General/d/2781/3d697212060b41f6a214ff3349397f69.jpg'),
-    new Referee('John', 'Kap', 'Our Referee',
-                'https://cdn.24.co.za/files/Cms/General/d/2781/3d697212060b41f6a214ff3349397f69.jpg')
-  ];
-
-  constructor() { }
+  constructor(private refereeService: RefereeService) { }
 
   ngOnInit() {
+    this.referees = this.refereeService.getReferees();
   }
-
-  onRefereeSelected(referee: Referee) {
-    this.refereeSelect.emit(referee);
-  }
-
 }
