@@ -9,6 +9,7 @@ import { RefereeDetailComponent } from './referees/referee-detail/referee-detail
 import { RefereeItemComponent } from './referees/referee-list/referee-item/referee-item.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { RatingEditComponent } from './ratings/rating-edit/rating-edit.component';
+import { RatingService } from './ratings/rating.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,9 @@ import { RatingEditComponent } from './ratings/rating-edit/rating-edit.component
     RatingEditComponent
   ],
   imports: [
-    BrowserModule
+  BrowserModule
   ],
-  providers: [],
+  providers: [RatingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

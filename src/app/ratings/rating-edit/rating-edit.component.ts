@@ -24,6 +24,6 @@ export class RatingEditComponent implements OnInit {
         this.nameInput.nativeElement.value,
         this.commentInput.nativeElement.value);
 
-    this.ratingService.ratingAdded.emit(rating);
+    this.ratingService.addRating(rating);
   }
 }

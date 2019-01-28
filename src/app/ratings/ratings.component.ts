@@ -17,13 +17,9 @@ export class RatingsComponent implements OnInit {
     this.ratings = this.ratingService.getRatings();
 
     this.ratingService.ratingAdded.subscribe(
-      (rating: Rating) => {
-        this.addRating(rating);
+      (ratings: Rating[]) => {
+        this.ratings = ratings;
       }
     );
-  }
-
-  addRating(rating: Rating) {
-    this.ratings.push(rating);
   }
 }
