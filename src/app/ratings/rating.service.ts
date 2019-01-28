@@ -17,4 +17,9 @@ export class RatingService {
     this.ratings.push(rating);
     this.ratingAdded.emit(this.getRatings());
   }
+
+  addRatings(ratings: Rating[]) {
+    this.ratings.push(...ratings);
+    this.ratingAdded.emit(this.getRatings());
+  }
 }

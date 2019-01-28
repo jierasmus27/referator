@@ -5,8 +5,7 @@ import { RatingService } from './rating.service';
 @Component({
   selector: 'app-ratings',
   templateUrl: './ratings.component.html',
-  styleUrls: ['./ratings.component.css'],
-  providers: [RatingService]
+  styleUrls: ['./ratings.component.css']
 })
 export class RatingsComponent implements OnInit {
   private ratings: Rating[];

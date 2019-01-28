@@ -12,8 +12,8 @@ export class Referee {
     lastName: string,
     desc: string,
     imagePath: string,
-    ratings: Rating[])
-  {
+    ratings: Rating[]
+  ) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.description = desc;
