@@ -10,7 +10,6 @@ import { RefereeService } from '../../referee.service';
 export class RefereeItemComponent implements OnInit {
   @Input() referee: Referee;
 
-
   constructor(private refereeService: RefereeService) { }
 
   ngOnInit() {

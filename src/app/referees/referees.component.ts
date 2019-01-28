@@ -15,8 +15,10 @@ export class RefereesComponent implements OnInit {
 
   ngOnInit() {
     this.refereeService.refereeSelected
-      .subscribe((referee: Referee) =>
-        this.selectedReferee = referee
+      .subscribe(
+        (referee: Referee) => {
+          this.selectedReferee = referee;
+        }
       );
   }
 
