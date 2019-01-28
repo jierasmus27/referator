@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Rating } from 'src/app/shared/rating.model';
+import { RatingService } from '../rating.service';
 
 @Component({
   selector: 'app-rating-edit',
@@ -11,20 +12,18 @@ export class RatingEditComponent implements OnInit {
   @ViewChild('ratingInput') ratingInput: ElementRef;
   @ViewChild('commentInput') commentInput: ElementRef;
 
-  @Output() ratingAdded = new EventEmitter<Rating>();
-
-  constructor() { }
+  constructor(private ratingService: RatingService) { }
 
   ngOnInit() {
   }
 
-  addReferee() {
+  addRating() {
     const rating =
       new Rating(
-        this.nameInput.nativeElement.value,
         this.ratingInput.nativeElement.value,
+        this.nameInput.nativeElement.value,
         this.commentInput.nativeElement.value);
 
-    // this.ratingAdded.emit(rating);
+    this.ratingService.ratingAdded.emit(rating);
   }
 }

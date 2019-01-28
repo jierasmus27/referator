@@ -1,24 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Rating } from '../shared/rating.model';
+import { RatingService } from './rating.service';
 
 @Component({
   selector: 'app-ratings',
   templateUrl: './ratings.component.html',
-  styleUrls: ['./ratings.component.css']
+  styleUrls: ['./ratings.component.css'],
+  providers: [RatingService]
 })
 export class RatingsComponent implements OnInit {
-  ratings: Rating[] = [
-    new Rating(4.0, 1, 'He had an off day obviously'),
-    new Rating(6.0, 1, 'A much better display')
-  ];
+  private ratings: Rating[];
 
-  constructor() { }
+  constructor(private ratingService: RatingService) { }
 
   ngOnInit() {
+    this.ratings = this.ratingService.getRatings();
+
+    this.ratingService.ratingAdded.subscribe(
+      (rating: Rating) => {
+        this.addRating(rating);
+      }
+    );
   }
 
   addRating(rating: Rating) {
     this.ratings.push(rating);
   }
-
 }
