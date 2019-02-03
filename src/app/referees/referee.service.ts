@@ -9,6 +9,7 @@ export class RefereeService {
 
   private referees: Referee[] = [
     new Referee(
+      12,
       'Johnathan',
       'Kaplan',
       'Our foremost Referee',
@@ -19,6 +20,7 @@ export class RefereeService {
       ]
     ),
     new Referee(
+      123,
       'John',
       'Kap',
       'Our Referee',
@@ -34,6 +36,10 @@ export class RefereeService {
 
   getReferees() {
     return this.referees.slice();
+  }
+
+  getReferee(id: number) {
+    return this.referees.find(r => r.id === id);
   }
 
   addToRatings(ratings: Rating[]) {

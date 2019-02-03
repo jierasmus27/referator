@@ -5,11 +5,6 @@
       ></app-referee-list>
   </div>
   <div class="col-md-7">
-    <app-referee-detail 
-      *ngIf="selectedReferee; else noRefSelected"
-      [referee]="selectedReferee"></app-referee-detail>
-    <ng-template #noRefSelected>
-      <span>No Referee selected yet</span>
-    </ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>

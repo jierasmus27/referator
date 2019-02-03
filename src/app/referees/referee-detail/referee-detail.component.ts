@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Referee } from '../referee.model';
-import { RatingService } from 'src/app/ratings/rating.service';
+import { RefereeService } from '../referee.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-referee-detail',
@@ -8,14 +9,22 @@ import { RatingService } from 'src/app/ratings/rating.service';
   styleUrls: ['./referee-detail.component.css']
 })
 export class RefereeDetailComponent implements OnInit {
-  @Input() referee: Referee;
+  private referee: Referee;
 
-  constructor(private ratingService: RatingService) { }
+  constructor(private refereeService: RefereeService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let id = +this.route.snapshot.params['id'];
+    this.referee = this.refereeService.getReferee(id);
+
+    this.route.params.subscribe(
+      (params: Params) => {
+        id = +params['id'];
+        this.referee = this.refereeService.getReferee(id);
+    });
   }
 
   toRatingsList(referee: Referee) {
-    this.ratingService.addRatings(referee.ratings);
+    this.refereeService.addToRatings(referee.ratings);
   }
 }
