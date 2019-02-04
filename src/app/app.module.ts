@@ -13,6 +13,7 @@ import { RatingService } from './ratings/rating.service';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { SelectRefereeComponent } from './referees/select-referee/select-referee.component';
+import { RefereeEditComponent } from './referees/referee-edit/referee-edit.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SelectRefereeComponent } from './referees/select-referee/select-referee
     RatingsComponent,
     RatingEditComponent,
     DropdownDirective,
-    SelectRefereeComponent
+    SelectRefereeComponent,
+    RefereeEditComponent,
   ],
   imports: [
     BrowserModule,

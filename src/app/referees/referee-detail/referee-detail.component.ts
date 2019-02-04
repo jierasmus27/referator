@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Referee } from '../referee.model';
 import { RefereeService } from '../referee.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-referee-detail',
@@ -11,7 +11,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class RefereeDetailComponent implements OnInit {
   private referee: Referee;
 
-  constructor(private refereeService: RefereeService, private route: ActivatedRoute) { }
+  constructor(private refereeService: RefereeService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     let id = +this.route.snapshot.params['id'];
@@ -26,5 +28,9 @@ export class RefereeDetailComponent implements OnInit {
 
   toRatingsList(referee: Referee) {
     this.refereeService.addToRatings(referee.ratings);
+  }
+
+  onEditReferee() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 }
