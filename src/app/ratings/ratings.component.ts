@@ -27,4 +27,8 @@ export class RatingsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  onEditItem(index: number) {
+    this.ratingService.ratingEditing.next(index);
+  }
 }

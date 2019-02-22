@@ -14,6 +14,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { SelectRefereeComponent } from './referees/select-referee/select-referee.component';
 import { RefereeEditComponent } from './referees/referee-edit/referee-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RefereeEditComponent } from './referees/referee-edit/referee-edit.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [RatingService],
   bootstrap: [AppComponent]

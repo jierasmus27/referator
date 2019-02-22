@@ -4,10 +4,10 @@
     <hr>
     <ul class="list-group">
       <a
-        href="#"
         class="list-group-item"
         style="cursor: pointer;"
-        *ngFor="let rating of ratings">
+        *ngFor="let rating of ratings; let i = index"
+        (click)="onEditItem(i)">
         {{ rating.rating }} ({{ rating.comment }})
       </a>
     </ul>
